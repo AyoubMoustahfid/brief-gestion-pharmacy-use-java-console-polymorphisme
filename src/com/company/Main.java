@@ -13,7 +13,8 @@ public class Main {
         ArrayList<Person> clients = new ArrayList<Person>();
         ArrayList<Person> pharmaciens = new ArrayList<Person>();
 
-        Scanner scanner = new Scanner(System.in);
+        @SuppressWarnings("resource")
+		Scanner scanner = new Scanner(System.in);
 
         boolean var = true;
 
@@ -44,7 +45,7 @@ public class Main {
                         System.out.println("(3) update medicament");
                         System.out.println("(4) show all medicaments");
                         System.out.println("(5) search about any medicament in list medicament");
-                        System.out.println("(6) retour Ã  les Choix");
+                        System.out.println("(6) retour à les Choix");
 
                         System.out.println("CHoix :");
 
@@ -53,16 +54,19 @@ public class Main {
                             case 1 :
                                 System.out.println("add id product: \n");
                                 int id = medicaments.size() + 1;
-
+                                System.out.println(id);
+                                
                                 System.out.println("add name Product: \n");
                                 String nameProduct = scanner.next();
-
+                                
+                                System.out.println("add description Product: \n");
+                                String descriptionProduct = scanner.next();
+                                
                                 System.out.println("Add price product: \n");
                                 int price = scanner.nextInt();
                                 System.out.println("DH");
 
-                                System.out.println("add description Product: \n");
-                                String descriptionProduct = scanner.next();
+                                
 
                                 Medicament medicament = new Medicament(id, nameProduct, descriptionProduct, price);
                                 medicament.addMedicament(medicaments, medicament);
@@ -80,6 +84,7 @@ public class Main {
                                 break;
 
                             case 3:
+                            	System.out.println("select index medicament to update");
                                 int ii = scanner.nextInt() -1;
                                 for (int i = 0; i < medicaments.size(); i ++){
                                     if(ii == i){
@@ -87,13 +92,14 @@ public class Main {
                                         int newId = scanner.nextInt();
 
                                         System.out.println("new Name the Product :");
-                                        String newName  = scanner.nextLine();
+                                        String newName  = scanner.next();
 
                                         System.out.println("new Description the product :");
-                                        String newDescription = scanner.nextLine();
+                                        String newDescription = scanner.next();
 
                                         System.out.println("new Price the product :");
                                         int newPrice = scanner.nextInt();
+                                        System.out.println("DH");
 
                                         Medicament updateMedicament = new Medicament(newId, newName, newDescription, newPrice);
                                         updateMedicament.editMedicament(medicaments, updateMedicament, newId - 1);
@@ -124,8 +130,8 @@ public class Main {
 
                               for (int i = 0; i < medicaments.size(); i++){
                                   if(medicaments.get(i).getNameProduct().contains(search)){
-                                      Medicament searchMedicament = new Medicament();
-                                      //boolean dataSearch = medicaments.get(i).getNameProduct().contains(search) ;
+                                    @SuppressWarnings("unused")
+									Medicament searchMedicament = new Medicament();
                                       System.out.println(medicaments.get(i).toString());
                                       System.out.println();
                                       System.out.println("Yes is excesste");
@@ -186,19 +192,14 @@ public class Main {
                                 client.addPerson(clients, client);
 
 
-                                if((phone >= 10)){
-                                    System.out.println("Client Added");
-                                }else{
-                                    System.out.println("error in length number the phone ");
-                                }
-
-                                if(nbVente >= 3){
-                                    System.out.println();
-                                    System.out.println("cette person une client fedéle :) :)");
-                                    System.out.println();
-                                }else{
-                                    System.out.println("cette person n' a pas une client fedéle ");
-                                }
+                              
+                                // if condition pour validation long de nombre téléphone avec la methode Opération ternaire  
+                                String result = phone >= 10 ? "Client Added" : "error in length number the phone ";
+                                System.out.println(result);
+                                
+                                // if condition pour afficher message est ce que le client il est fedéle ou non avec la methode Opération ternaire 
+                                String resultVente = nbVente >= 3 ? "cette person une client fedéle :) :)" : "cette person n' a pas une client fedéle ";
+                                System.out.println(resultVente);
 
                                 break;
 
@@ -306,11 +307,9 @@ public class Main {
                                 pharmacien.addPerson(pharmaciens, pharmacien);
 
 
-                                if((phone >= 10)){
-                                    System.out.println("Client Added");
-                                }else{
-                                    System.out.println("error in length number the phone ");
-                                }
+                                // if condition pour validation long de nombre téléphone avec la methode Opération ternaire  
+                                String result = phone >= 10 ? "Client Added" : "error in length number the phone ";
+                                System.out.println(result);
 
                                 break;
 
@@ -389,8 +388,8 @@ public class Main {
 	public static Comparator<Person> nameComparator = new Comparator<Person>() {
 
         public int compare(Person c1, Person c2) {
-           String clientName = c1.getFirstname();
-           String clientLName = c2.getLastname();
+           String clientName = c1.getFirstname(), clientLName = c2.getLastname();
+           
 
            //ascending order
            return clientName.compareTo(clientLName);
