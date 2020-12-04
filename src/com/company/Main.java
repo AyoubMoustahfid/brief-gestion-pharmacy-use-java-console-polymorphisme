@@ -155,8 +155,8 @@ public class Main {
                         // if client fedéle else not fedéle
                         System.out.println("(1) add client");
                         System.out.println("(2) delete client");
-                        System.out.println("(2) update client");
-                        System.out.println("(5) retour à les Choix");
+                        System.out.println("(3) update client");
+                        System.out.println("(4) retour à les Choix");
 
                         System.out.println("Choix :");
                         int choixClient = scanner.nextInt();
@@ -248,7 +248,7 @@ public class Main {
                                 break;
                             case 4:
                                 System.out.println("End");
-                                variable1 = false;
+                                variable2 = false;
                                 var = true;
                                 break;
 
@@ -269,8 +269,8 @@ public class Main {
                         // ADD Pharmacien
                         System.out.println("(1) add pharmacien");
                         System.out.println("(2) delete pharmacien");
-                        System.out.println("(2) dupdate pharmacien");
-                        System.out.println("(5) retour à les Choix");
+                        System.out.println("(3) dupdate pharmacien");
+                        System.out.println("(4) retour à les Choix");
 
                         System.out.println("Choix :");
                         int choixPharmacien = scanner.nextInt();
@@ -349,7 +349,7 @@ public class Main {
 
                             case 4:
                                 System.out.println("End");
-                                variable1 = false;
+                                variable3 = false;
                                 var = true;
                                 break;
 
