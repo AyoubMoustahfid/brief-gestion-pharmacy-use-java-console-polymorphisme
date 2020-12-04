@@ -24,12 +24,14 @@ public class Client extends Person{
 
     }
 
-    @Override
-    public String toString() {
-        return "Client : \n nombre Vente: " + nbVente ;
-    }
+    
 
-    public String addPerson(ArrayList<Person> persons, Client client){
+    @Override
+	public String toString() {
+		return super.toString() + "\n Nombre de Vente :" + nbVente;
+	}
+
+	public String addPerson(ArrayList<Person> persons, Client client){
         try{
             return super.addPerson(persons, client);
         }catch(Exception ex){

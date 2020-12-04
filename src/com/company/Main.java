@@ -1,6 +1,8 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class Main {
@@ -25,6 +27,7 @@ public class Main {
             System.out.println("======= Mednu de les gestion programmes =======");
             System.out.println("(1) Gestion medicament");
             System.out.println("(2) gestion Client");
+            System.out.println("(3) gestion Pharmacien");
 
             int choix = scanner.nextInt();
 
@@ -246,7 +249,16 @@ public class Main {
 
                                 System.out.println(" Client Updated !!");
                                 break;
+                                
+                           
                             case 4:
+                            
+                           
+                            Collections.sort(clients, nameComparator );
+                            System.out.println(clients);
+                            	break;
+                            	
+                            case 5:
                                 System.out.println("End");
                                 variable2 = false;
                                 var = true;
@@ -269,8 +281,8 @@ public class Main {
                         // ADD Pharmacien
                         System.out.println("(1) add pharmacien");
                         System.out.println("(2) delete pharmacien");
-                        System.out.println("(3) dupdate pharmacien");
-                        System.out.println("(4) retour Ã  les Choix");
+                        System.out.println("(3) update pharmacien");
+                        System.out.println("(4) retour à les Choix");
 
                         System.out.println("Choix :");
                         int choixPharmacien = scanner.nextInt();
@@ -346,7 +358,8 @@ public class Main {
 
                                 System.out.println("Pharmacien Updated !!");
                                 break;
-
+                            
+                          
                             case 4:
                                 System.out.println("End");
                                 variable3 = false;
@@ -372,4 +385,18 @@ public class Main {
         }
 
     }
+    
+	public static Comparator<Person> nameComparator = new Comparator<Person>() {
+
+        public int compare(Person c1, Person c2) {
+           String clientName = c1.getFirstname();
+           String clientLName = c2.getLastname();
+
+           //ascending order
+           return clientName.compareTo(clientLName);
+
+        }
+
+
+    };
 }
