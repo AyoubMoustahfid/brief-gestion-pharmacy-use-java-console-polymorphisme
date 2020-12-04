@@ -122,8 +122,8 @@ public class Main {
                               for (int i = 0; i < medicaments.size(); i++){
                                   if(medicaments.get(i).getNameProduct().contains(search)){
                                       Medicament searchMedicament = new Medicament();
-                                      boolean dataSearch = searchMedicament.getNameProduct().contains(search) ;
-                                      System.out.println(dataSearch);
+                                      //boolean dataSearch = medicaments.get(i).getNameProduct().contains(search) ;
+                                      System.out.println(medicaments.get(i).toString());
                                       System.out.println();
                                       System.out.println("Yes is excesste");
                                       System.out.println("------------------------------");
@@ -176,7 +176,7 @@ public class Main {
                                 System.out.println("add email Client: \n");
                                 String email = scanner.next();
 
-                                System.out.println("AjoutÃ© Some Vente Client : \n");
+                                System.out.println("Add Some Vente Client : \n");
                                 int nbVente = scanner.nextInt();
 
                                 Client client = new Client(id, firstname, lastname, phone, email, nbVente);
@@ -191,10 +191,10 @@ public class Main {
 
                                 if(nbVente >= 3){
                                     System.out.println();
-                                    System.out.println("cette person une client fedÃ©le :) :)");
+                                    System.out.println("cette person une client fedéle :) :)");
                                     System.out.println();
                                 }else{
-                                    System.out.println("cette person n' a pas une client fedÃ©le ");
+                                    System.out.println("cette person n' a pas une client fedéle ");
                                 }
 
                                 break;
