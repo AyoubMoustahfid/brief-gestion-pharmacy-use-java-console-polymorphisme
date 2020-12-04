@@ -65,7 +65,7 @@ public class Person {
     
     @Override
     public String toString() {
-        return "Id:" + id + "\n firstname :" + firstname + "\n lastname :" + "\n phone :" + phone + "\n Email :" + email;
+        return "\n Id:" + id + "\n firstname :" + firstname + "\n lastname :" + "\n phone :" + phone + "\n Email :" + email;
     }
 
     public String addPerson(ArrayList<Person> persons, Person person){
