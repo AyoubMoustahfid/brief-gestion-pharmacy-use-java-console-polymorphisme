@@ -2,6 +2,7 @@ package com.company;
 
 import java.util.ArrayList;
 
+
 public class Medicament {
 
     private int id;
@@ -62,7 +63,7 @@ public class Medicament {
            medicaments.add(medicament);
            return "Medicament Added";
         }catch(Exception ex){
-            return ex.getMessage();
+            return ex.getLocalizedMessage();
         }
     }
 
@@ -95,4 +96,6 @@ public class Medicament {
             return ex.getMessage();
         }
     }
+    
+	
 }

@@ -3,6 +3,7 @@ package com.company;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.EnumSet;
 import java.util.Scanner;
 
 public class Main {
@@ -60,18 +61,29 @@ public class Main {
                                 String nameProduct = scanner.next();
                                 
                                 System.out.println("add description Product: \n");
-                                String descriptionProduct = scanner.next();
+                                scanner.nextLine();
+                                String descriptionProduct = scanner.nextLine();
                                 
                                 System.out.println("Add price product: \n");
-                                int price = scanner.nextInt();
-                                System.out.println("DH");
-
-                                
-
+                                int price = 0;
+                                boolean isNumber;
+                                do {
+                                	 if(scanner.hasNextInt()) {
+                                    	 price = scanner.nextInt();
+                                         System.out.println("DH");
+                                         isNumber = true;
+                                    }else {
+                                    	System.out.println("Please enter number betwenn [0-9]");
+                                    	isNumber = false;
+                                    	scanner.next();
+                                    }
+                                }while(!(isNumber));
+                                System.out.println(price);
+                               
                                 Medicament medicament = new Medicament(id, nameProduct, descriptionProduct, price);
                                 medicament.addMedicament(medicaments, medicament);
-
-                                System.out.println("add medicament Product Succesfuly");
+                                // afficher message d'ajoute le produit medicament
+                                System.out.println(Error.WARN.toString());
 
                                 break;
 
