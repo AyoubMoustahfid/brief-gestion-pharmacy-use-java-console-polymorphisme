@@ -55,7 +55,7 @@ public class Medicament {
 
     @Override
     public String toString() {
-        return "Id:" + id + "\n Name Product :" + nameProduct + "\n Description Product :" + description + "\n Price :" + price;
+        return "Id:" + id + "\n Name Product :" + nameProduct + "\n Description Product :" + description + "\n Price :" + price + " DH";
     }
 
     public String addMedicament(ArrayList<Medicament> medicaments, Medicament medicament){

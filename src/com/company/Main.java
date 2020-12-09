@@ -107,11 +107,28 @@ public class Main {
                                         String newName  = scanner.next();
 
                                         System.out.println("new Description the product :");
-                                        String newDescription = scanner.next();
+                                        scanner.nextLine();
+                                        String newDescription = scanner.nextLine();
 
                                         System.out.println("new Price the product :");
-                                        int newPrice = scanner.nextInt();
-                                        System.out.println("DH");
+                                        int newPrice = 0;
+                                        boolean isNewNumber;
+                                        do {
+                                        	 if(scanner.hasNextInt()) {
+                                        		 newPrice = scanner.nextInt();
+                                                 System.out.println("DH");
+                                                 isNewNumber = true;
+                                            }else {
+                                            	System.out.println("Please enter number betwenn [0-9]");
+                                            	isNewNumber = false;
+                                            	scanner.next();
+                                            }
+                                        }while(!(isNewNumber));
+                                        System.out.println(newPrice);
+                                       
+                                        
+                                        
+                                        
 
                                         Medicament updateMedicament = new Medicament(newId, newName, newDescription, newPrice);
                                         updateMedicament.editMedicament(medicaments, updateMedicament, newId - 1);
